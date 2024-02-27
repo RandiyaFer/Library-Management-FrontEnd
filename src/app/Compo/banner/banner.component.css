@@ -1,0 +1,4 @@
+.bg-blur{
+    backdrop-filter: blur;
+    background-color: darkgrey;
+}
