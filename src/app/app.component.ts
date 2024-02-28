@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BannerComponent } from './Compo/banner/banner.component';
-import { AllComponent } from './pages/all/all.component';
+import { ViewAllBooksComponent } from './pages/view-all-books/view-all-books.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,BannerComponent,AllComponent,],
+  imports: [RouterOutlet,BannerComponent,ViewAllBooksComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

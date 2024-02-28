@@ -3,17 +3,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Banner2Component } from '../../Compo/banner2/banner2.component';
 import  Swal from 'sweetalert2';
+import { BannerComponent } from "../../Compo/banner/banner.component";
 
 @Component({
-  selector: 'app-all',
-  standalone: true,
-  imports: [HttpClientModule,FormsModule,CommonModule,RouterModule,RouterOutlet,Banner2Component],
-  templateUrl: './all.component.html',
-  styleUrl: './all.component.css'
+    selector: 'app-all',
+    standalone: true,
+    templateUrl: './view-all-books.component.html',
+    styleUrl: './view-all-books.component.css',
+    imports: [HttpClientModule, FormsModule, CommonModule, RouterModule, RouterOutlet,BannerComponent]
 })
-export class AllComponent implements OnInit{
+export class ViewAllBooksComponent implements OnInit{
 
  private http;
  public bookList:any = {};

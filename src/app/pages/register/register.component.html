@@ -1,0 +1,130 @@
+<main class="container w-50">
+    <div class="py-5 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-box-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+            <path fill-rule="evenodd"
+                d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+        </svg>
+        <h2>Register form</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group
+            has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-12 col-lg-12">
+            <h4 class="mb-3">User Register</h4>
+            <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="address" class="form-label">Full Name</label>
+                        <input type="text" [(ngModel)]="borrower && borrower.name" [ngModelOptions]="{standalone:true}"
+                            class="form-control" id="name" placeholder="Enter your Name" required>
+                        <div class="invalid-feedback">
+                            Valid name is required.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text"></span>
+                            <input type="text" [(ngModel)]="borrower && borrower.userName"
+                                [ngModelOptions]="{standalone:true}" class="form-control" id="username"
+                                placeholder="Username" required>
+                            <div class="invalid-feedback">
+                                Your username is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email <span
+                                class="text-body-secondary">(Optional)</span></label>
+                        <input type="email" [(ngModel)]="borrower && borrower.email"
+                            [ngModelOptions]="{standalone:true}" class="form-control" id="email"
+                            placeholder="you@gmail.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label">Nic</label>
+                        <input type="text" [(ngModel)]="borrower && borrower.nic" [ngModelOptions]="{standalone:true}"
+                            class="form-control" id="nic" placeholder="Enter your Nic Number" required>
+                        <div class="invalid-feedback">
+                            Please recheck and enter your Nic Number.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" [(ngModel)]="borrower && borrower.address"
+                            [ngModelOptions]="{standalone:true}" class="form-control" id="address"
+                            placeholder="1234 Main St" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="invalid-feedback">
+                            Please enter Strong Password.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="address" class="form-label">Confirm Password</label>
+                        <input type="password" [(ngModel)]="borrower && borrower.password"
+                            [ngModelOptions]="{standalone:true}" class="form-control" id="cPassword" placeholder=""
+                            required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" id="country" required>
+                            <option value="">Choose...</option>
+                            <option *ngFor="let country of countryList" [value]="country.name.common"
+                                (click)="selectedCountry()"[(ngModel)]="borrower && borrower.country" [ngModelOptions]="{standalone:true}">{{country.flag}}&nbsp;{{country.name.common}}
+                            </option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="zip" class="form-label">Phone Number</label>
+                        <input type="Number" class="form-control" [(ngModel)]="selectedCountry?.idd.root"
+                            [ngModelOptions]="{standalone:true}" required id="zip" placeholder="" required
+                            [(ngModel)]="borrower && borrower.contact" [ngModelOptions]="{standalone:true}">
+                        <div class="invalid-feedback">
+                            Phone Number required.
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit" (click)="createBorrower()">Continue to
+                    checkout</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2017–2024 Company Name</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
